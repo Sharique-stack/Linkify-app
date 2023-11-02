@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, neo-grotesque;
+            background: linear-gradient(to bottom, #3498db, #063050);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            margin-top: 27px;
+        }
+        header {
+            text-align: center;
+        }
+        .upload-container {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0px 10px 10px rgb(75, 70, 70);
+            padding: 20px;
+            text-align: center;
+            margin-top: 1.75in;
+        }
+        h1 {
+            color: #333;
+            display: block;
+            font-family: 'Comic Sans MS', cursive;
+            font-size: 2em;
+            margin-block-start: 0.67em;
+            margin-block-end: 0.67em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            font-weight: bold;
+        }
+        h2 {
+        }
+        h3 {
+            color: #fff;
+            display: block;
+            font-size: 1.17em;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            font-weight: bold;
+        }
+        input[type="file"] {
+            display: none;
+        }
+        label {
+            display: inline-block;
+            background-color: #ff4800;
+            color: #fff;
+            box-shadow: 0px 10px 10px rgb(75, 70, 70);
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        label:hover {
+            transform: translateY(4px);
+        }
+        #upload-status {
+            display: none;
+            margin-top: 20px;
+        }
+        a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Linkify</h1>
+            <h3>Welcome to My File Upload and Link Generation Page</h3>
+        </header>
+    </div>
+
+    <div class="upload-container">
+        <h2>File Upload</h2>
+        <form action="/send" method="post" enctype="multipart/form-data">
+            <label for="file-input">
+                Select File <span class="fa fa-upload" style="color:blue;"></span>
+            </label>
+            <input type="file" id="file-input" name="fileName" accept="*">
+            <button type="submit" value="submit" style="display:inline-block;background-color:#1E2F97;color:#fff;hover:transform(translateY(4px));
+            box-shadow: 0px 10px 10px rgb(75, 70, 70);
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;">Generate</button> 
+        </form>
+    </div>
+    <div id="output"></div>
+
+    <!-- Include a script tag to run JavaScript -->
+    <script>
+        // Define the shortLinkURL in JavaScript 
+        const shortLinkURL = "<a href=\"/uploads/your-short-link-here\" target=\"_blank\">Your Short Link</a>";
+        // Get the "output" element by ID
+        const outputElement = document.getElementById('output');
+        // Update the innerHTML of the "output" element with the shortLinkURL
+        outputElement.innerHTML = shortLinkURL;
+    </script>
+</body>
+</html>
